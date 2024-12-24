@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(199, 235, 199);
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        h2 {
+            font-size: 16px;
+            text-align: left;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login Page</h1>
+        <form id="loginForm">
+            <div>
+                <h2>Username</h2>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
+                <span class="error" id="usernameError"></span>
+            </div>
+            <div>
+                <h2>Password</h2>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+                <span class="error" id="passwordError"></span>
+            </div><br>
+            <input type="button" value="Login" onclick="login()">
+            <div class="register-link">
+                <p>New user? <a href="Registation.html">Register here</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function login() {
+            document.getElementById("usernameError").textContent = "";
+            document.getElementById("passwordError").textContent = "";
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            let valid = true;
+            if (username === "") {
+                document.getElementById("usernameError").textContent = "Username is required.";
+                valid = false;
+            }
+            if (password === "") {
+                document.getElementById("passwordError").textContent = "Password is required.";
+                valid = false;
+            }
+            if (valid) {
+                alert("Login successful!");
+                window.location.href = "HomePage.html";
+            }
+        }
+    </script>
+</body>
+</html>
